@@ -1,6 +1,6 @@
 process.on('uncaughtException', err => {
-  console.error(err.name, err.message);
   console.log('UNCAUGHT EXCEPTION 💥 Shutting Down...');
+  console.error(err.name, err.message);
 
   process.exit(1);
 });
@@ -22,9 +22,6 @@ mongoose
   })
   .then(() => {
     console.log('Connected to DB. 🚀');
-  })
-  .catch(error => {
-    console.log(error);
   });
 
 const port = process.env.PORT || 3000;
@@ -34,8 +31,8 @@ const server = app.listen(port, () => {
 });
 
 process.on('unhandledRejection', err => {
-  console.error(err.name, err.message);
   console.log('UNHANDLED REJECTION 💥 Shutting Down...');
+  console.error(err.name, err.message);
 
   server.close(() => process.exit(1));
 });

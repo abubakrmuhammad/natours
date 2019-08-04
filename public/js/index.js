@@ -63,8 +63,6 @@ if (userDataForm)
     form.append('email', document.getElementById('email').value);
     form.append('photo', document.getElementById('photo').files[0]);
 
-    console.log(document.getElementById('photo').files[0]);
-
     await updateSettings(form, 'data');
     document.querySelector('.btn--save-data').textContent = 'Save Settings';
   });
