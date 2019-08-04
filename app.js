@@ -7,6 +7,7 @@ const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
+const compression = require('compression');
 
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
@@ -37,6 +38,9 @@ app.use(mongoSanitize());
 
 // Prevent Cross-Site-Scripting
 app.use(xss());
+
+// Compress Responses
+app.use(compression());
 
 // Prevent HTTP Parameter Pollution
 app.use(
