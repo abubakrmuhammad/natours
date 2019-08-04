@@ -14,7 +14,7 @@ async function getCheckoutSession(req, res, next) {
     // success_url: `${req.protocol}://${req.get('host')}/?tour=${tour.id}&user=${
     //   req.user.id
     // }&price=${tour.price}`,
-    success_url: `${req.protocol}://${req.get('host')}/me/tours`,
+    success_url: `${req.protocol}://${req.get('host')}/me/tours?alert=booking`,
     cancel_url: `${req.protocol}://${req.get('host')}/tour/${tour.slug}/`,
     customer_email: req.user.email,
     client_reference_id: req.params.tourId,

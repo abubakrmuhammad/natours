@@ -60,11 +60,20 @@ async function getMyBookings(req, res, next) {
   });
 }
 
+function alerts(req, res, next) {
+  const { alert } = req.query;
+
+  if (alert === 'booking') res.locals.alert = 'Your Booking was successful!';
+
+  next();
+}
+
 module.exports = {
   getOverview: catchAsync(getOverview),
   getTour: catchAsync(getTour),
   getLoginForm,
   getSignupForm,
   getAccount,
-  getMyBookings: catchAsync(getMyBookings)
+  getMyBookings: catchAsync(getMyBookings),
+  alerts
 };
