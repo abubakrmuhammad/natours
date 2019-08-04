@@ -17,6 +17,7 @@ const usersRouter = require('./routes/userRoutes');
 const reviewRouter = require('./routes/reviewRoutes');
 const viewRouter = require('./routes/viewRoutes');
 const bookingRouter = require('./routes/bookingRoutes');
+const bookingController = require('./controllers/bookingController');
 
 const app = express();
 
@@ -31,6 +32,12 @@ app.use(helmet());
 
 // Logger for Development
 if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
+
+app.post(
+  '/webhook-checkout',
+  express.raw({ type: 'application/json' }),
+  bookingController.webhookCheckout
+);
 
 // Prevent Request Body Overload
 app.use(express.json({ limit: '10kb' }));
