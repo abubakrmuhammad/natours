@@ -37,7 +37,7 @@ app.use(express.json({ limit: '10kb' }));
 app.use(cookieParser());
 
 // Enable CORS
-app.use(cors());
+app.use('/api/v1/*', cors());
 app.options('/api/v1/*', cors());
 
 // Prevent Malicious NoSQL Queries
