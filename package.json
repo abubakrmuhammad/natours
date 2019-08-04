@@ -4,8 +4,8 @@
   "description": "Learning NodeJS, ExpressJS, MongoDB and More...",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon server.js",
-    "start:prod": "NODE_ENV=production nodemon server.js",
+    "start": "node server.js",
+    "dev": "nodemon server.js",
     "watch:js": "parcel watch ./public/js/index.js --out-dir ./public/js --out-file bundle.js",
     "build:js": "parcel build ./public/js/index.js --out-dir ./public/js --out-file bundle.js",
     "debug": "ndb server.js",
@@ -14,7 +14,7 @@
   "author": "Abubakr",
   "license": "ISC",
   "engines": {
-    "node": ">=10.0.0"
+    "node": "10.16.0"
   },
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
