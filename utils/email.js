@@ -1,6 +1,6 @@
 const nodemailer = require('nodemailer');
 const pug = require('pug');
-const htmlToText = require('html-to-text');
+const { htmlToText } = require('html-to-text');
 
 class Email {
   constructor(user, url) {
@@ -46,7 +46,7 @@ class Email {
       to: this.to,
       subject,
       html,
-      text: htmlToText.fromString(html)
+      text: htmlToText(html)
     };
 
     await this.createTransport().sendMail(mailOptions);
